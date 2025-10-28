@@ -4,25 +4,25 @@ import "./Projects.css";
 const projectsData = [
 	{
 		id: 1,
-		title: "Portfolio Website",
-		description: "A personal portfolio to showcase my work and skills.",
-		tech: ["React", "CSS", "Vite"],
-		image: "/src/assets/images/portfolio-demo.png",
+		title: "Enrollment System",
+		description: "A full-stack Enrollment System project during 2nd year of college",
+		tech: ["JavaFX", "MySQL", "Java"],
+		image: "/src/assets/images/Enrollment System.jpg",
 		demo: "https://your-demo-link.com",
 		code: "https://github.com/Zehihi/Portfolio-Zeus",
-		category: "Web",
+		category: "School Project",
 	},
 	{
 		id: 2,
 		title: "Capstone Project",
 		description: "A full-stack capstone project for my degree.",
-		tech: ["Node.js", "Express", "MongoDB"],
-		image: "/src/assets/images/capstone-demo.png",
-		demo: "https://your-capstone-demo.com",
+		tech: ["Node.js", "React.js", "MongoDB"],
+		image: "/src/assets/images/sch.png",
+		demo: "https://scholar-block.vercel.app/",
 		code: "https://github.com/Zehihi/Capstone-Project",
 		category: "Capstone",
 	},
-	// Add more projects as needed
+	
 ];
 
 const categories = ["All", ...Array.from(new Set(projectsData.map(p => p.category)))];

@@ -1,15 +1,58 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Footer.css";
 
 function Footer() {
-	const handleBackToTop = e => {
-		e.preventDefault();
-		document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" });
-	};
+  const [verse, setVerse] = useState({
+    text: "",
+    reference: "",
+    loading: true,
+    error: null
+  });
+  const handleBackToTop = e => {
+    e.preventDefault();
+    document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" });
+  };
 
-	return (
+  useEffect(() => {
+    const fetchVerse = async () => {
+      try {
+        const response = await fetch(
+          'https://beta.ourmanna.com/api/v1/get?format=json&order=daily'
+        );
+        const data = await response.json();
+        setVerse({
+          text: data.verse.details.text,
+          reference: data.verse.details.reference,
+          loading: false,
+          error: null
+        });
+      } catch (error) {
+        setVerse(prev => ({
+          ...prev,
+          loading: false,
+          error: "Failed to load verse"
+        }));
+      }
+    };
+
+    fetchVerse();
+  }, []);
+
+  return (
 		<footer className="footer">
 			<div className="footer-content">
+        <div className="daily-verse">
+          {verse.loading ? (
+            <p className="verse-loading">Loading today's verse...</p>
+          ) : verse.error ? (
+            <p className="verse-error">{verse.error}</p>
+          ) : (
+            <>
+              <p className="verse-text">"{verse.text}"</p>
+              <p className="verse-reference">— {verse.reference}</p>
+            </>
+          )}
+        </div>
 				<nav className="footer-nav">
 					<a href="#hero">Home</a>
 					<a href="#about">About</a>

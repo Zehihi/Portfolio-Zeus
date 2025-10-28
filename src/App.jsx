@@ -7,6 +7,8 @@ import Hero from './Hero/Hero.jsx'
 import Projects from './Projects/Projects.jsx';
 import Contact from './Contacts/Contact.jsx';
 import Footer from './Footer/Footer.jsx';
+import About from './About/About.jsx';
+
 
 function App() {
 
@@ -15,6 +17,7 @@ function App() {
       <Navbar />
       <Hero />
       <Projects />
+      <About />
       <Contact />
       <Footer />
     </>

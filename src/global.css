@@ -1,0 +1,26 @@
+:root {
+  /* 🌞 Light Mode (default) */
+  --color-bg: #f8fafc;
+  --color-primary: #22223b;
+  --color-secondary: #4a4e69;
+  --color-accent: #007bff;
+  --color-white: #ffffff;
+  --color-btn-hover: #0056b3;
+}
+
+/* 🌙 Dark Mode */
+[data-theme="dark"] {
+  --color-bg: #1a1a1a;
+  --color-primary: #ffffff;
+  --color-secondary: #cccccc;
+  --color-accent: #4f9cff;
+  --color-white: #2a2a2a;
+  --color-btn-hover: #007bff;
+}
+
+/* Apply globally */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  transition: background-color 0.3s, color 0.3s;
+}

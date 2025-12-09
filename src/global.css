@@ -1,14 +1,23 @@
-:root {
-  /* 🌞 Light Mode (default) */
+﻿:root {
+  
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  
   --color-bg: #f8fafc;
   --color-primary: #22223b;
   --color-secondary: #4a4e69;
   --color-accent: #007bff;
   --color-white: #ffffff;
   --color-btn-hover: #0056b3;
+  
+  
+  --zeus-dark: #1a1a2e;
+  --zeus-gold: #d4af37;
+  --zeus-sky: #87ceeb;
+  --zeus-lightning: #ffd700;
 }
 
-/* 🌙 Dark Mode */
+
 [data-theme="dark"] {
   --color-bg: #1a1a1a;
   --color-primary: #ffffff;
@@ -18,9 +27,36 @@
   --color-btn-hover: #007bff;
 }
 
-/* Apply globally */
+
 body {
+  font-family: var(--font-main);
   background-color: var(--color-bg);
   color: var(--color-primary);
   transition: background-color 0.3s, color 0.3s;
 }
+
+
+@keyframes zeus-aura {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
+
+@keyframes divine-pulse {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 0 60px rgba(212, 175, 55, 0.2), 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 80px rgba(212, 175, 55, 0.3), 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+}
+

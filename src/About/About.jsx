@@ -52,15 +52,15 @@ function About() {
           <div className="skills">
             <h3>Tech Stack</h3>
             <ul className="skills-list">
-              <li>C++</li>
-              <li>⚛️ C#</li>
-              <li>♨️ Java</li>
-              <li>🐍 Python</li>
-              <li>⚛️ React</li>
-              <li>💻 HTML</li>
-              <li>🎨 CSS</li>
-              <li>🧠 JavaScript</li>
-              <li>🌐 Git & GitHub</li>
+              <li><button className="skill-btn">C++</button></li>
+              <li><button className="skill-btn">⚛️ C#</button></li>
+              <li><button className="skill-btn">♨️ Java</button></li>
+              <li><button className="skill-btn">🐍 Python</button></li>
+              <li><button className="skill-btn">⚛️ React</button></li>
+              <li><button className="skill-btn">💻 HTML</button></li>
+              <li><button className="skill-btn">🎨 CSS</button></li>
+              <li><button className="skill-btn">🧠 JavaScript</button></li>
+              <li><button className="skill-btn">🌐 Git & GitHub</button></li>
             </ul>
           </div>
 
@@ -74,11 +74,11 @@ function About() {
                   onClick={() =>
                     openModal(
                       "/assets/images/Access.jpg",
-                      "Responsive Web Design — FreeCodeCamp"
+                      "Ms Access Specialist"
                     )
                   }
                 >
-                  Responsive Web Design — FreeCodeCamp
+                  Ms Access Specialist
                 </button>
               </li>
 
@@ -89,11 +89,11 @@ function About() {
                   onClick={() =>
                     openModal(
                       "/assets/certs/js-algorithms.jpg",
-                      "JavaScript Algorithms & Data Structures — FreeCodeCamp"
+                      "MS Excel Specialist"
                     )
                   }
                 >
-                  JavaScript Algorithms & Data Structures — FreeCodeCamp
+                  MS Excel Specialist
                 </button>
               </li>
 
@@ -104,11 +104,11 @@ function About() {
                   onClick={() =>
                     openModal(
                       "/assets/certs/frontend-bootcamp.jpg",
-                      "Frontend Development Bootcamp — Local Course"
+                      "TEST123"
                     )
                   }
                 >
-                  Frontend Development Bootcamp — Local Course
+                  TEST123 
                 </button>
               </li>
             </ul>

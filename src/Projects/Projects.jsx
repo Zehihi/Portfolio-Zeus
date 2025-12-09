@@ -18,7 +18,7 @@ const projectsData = [
 		description: "A full-stack capstone project for my degree.",
 		tech: ["Node.js", "React.js", "MongoDB"],
 		image: "/src/assets/images/sch.png",
-		demo: "https://scholar-block.vercel.app/",
+		demo: "https://www.iskolarblock.app/",
 		code: "https://github.com/Zehihi/Capstone-Project",
 		category: "Capstone",
 	},

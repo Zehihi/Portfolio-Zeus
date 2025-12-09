@@ -1,6 +1,7 @@
 import React from "react";
 import "./Hero.css"; 
 import profilePic from "../assets/images/2x2 Zeus.jpeg";
+import StormButton from "../components/StormButton";
 
 function Hero() {
   return (
@@ -22,8 +23,8 @@ function Hero() {
           </p>
 
           <div className="hero-buttons">
-            <a href="#projects" className="btn">View Projects</a>
-            <a href="#contact" className="btn btn-outline">Contact Me</a>
+            <StormButton href="#projects">View Projects</StormButton>
+            <StormButton href="#contact" className="btn-outline">Contact Me</StormButton>
           </div>
         </div>
       </div>

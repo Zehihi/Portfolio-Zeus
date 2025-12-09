@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Contact.css";
 
 function Contact() {
-	const [form, setForm] = useState({ name: "", email: "", message: "" });
+	const [form, setForm] = useState({ name: "", email: "", message: "", phone: "" });
 	const [success, setSuccess] = useState(false);
 
 	const handleChange = e => {
@@ -11,9 +11,28 @@ function Contact() {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		// Simulate success (replace with real email service in production)
+		
+		// Save message to localStorage
+		try {
+			const messages = JSON.parse(localStorage.getItem('adminMessages')) || [];
+			const newMessage = {
+				id: Date.now().toString(),
+				name: form.name,
+				email: form.email,
+				phone: form.phone || 'Not provided',
+				message: form.message,
+				timestamp: new Date().toISOString(),
+				isRead: false
+			};
+			messages.unshift(newMessage);
+			localStorage.setItem('adminMessages', JSON.stringify(messages));
+		} catch (err) {
+			console.error('Error saving message:', err);
+		}
+		
+		// Show success message
 		setSuccess(true);
-		setForm({ name: "", email: "", message: "" });
+		setForm({ name: "", email: "", message: "", phone: "" });
 		setTimeout(() => setSuccess(false), 3000);
 	};
 
@@ -38,6 +57,13 @@ function Contact() {
 						onChange={handleChange}
 						required
 					/>
+					<input
+						type="tel"
+						name="phone"
+						placeholder="Your Phone (optional)"
+						value={form.phone}
+						onChange={handleChange}
+					/>
 					<textarea
 						name="message"
 						placeholder="Your Message"
@@ -47,11 +73,11 @@ function Contact() {
 						rows={5}
 					/>
 					<button type="submit" className="btn contact-btn">Send Message</button>
-					{success && <div className="contact-success">Thank you! Your message has been sent.</div>}
+					{success && <div className="contact-success">Thank you! Your message has been sent and saved.</div>}
 				</form>
 				<div className="contact-info">
 					<div className="contact-email">
-						<a href="mailto:teredines40@gmail.com">teredines40@gmail.com</a>
+						<a href="mailto:zeussulit@yahoo.com">zeussulit@yahoo.com</a>
 					</div>
 					<div className="contact-socials">
 						<a href="https://github.com/Zehihi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">

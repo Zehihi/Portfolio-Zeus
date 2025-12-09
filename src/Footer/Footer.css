@@ -1,31 +1,37 @@
-/* Footer Styles */
+﻿
 .footer {
-	background: var(--color-bg, #f8fafc);
+	background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 	padding: 32px 20px 16px 20px;
-	border-top: 1.5px solid #e9ecef;
+	border-top: 1.5px solid rgba(212, 175, 55, 0.2);
+	position: relative;
+	overflow: hidden;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-/* Daily Verse Styles */
+
 .daily-verse {
   text-align: center;
   max-width: 600px;
   margin: 0 auto 24px;
   padding: 16px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(26, 31, 46, 0.8);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+  position: relative;
+  z-index: 1;
 }
 
 .verse-text {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: var(--color-primary, #22223b);
+  color: #ffffff;
   margin-bottom: 8px;
   font-style: italic;
 }
 
 .verse-reference {
   font-size: 0.95rem;
-  color: var(--color-accent, #4a4e69);
+  color: #d4af37;
   font-weight: 600;
 }
 
@@ -45,6 +51,9 @@
 	flex-direction: column;
 	align-items: center;
 	gap: 18px;
+	position: relative;
+	z-index: 1;
+	color: #d1d5db;
 }
 .footer-nav {
 	display: flex;
@@ -52,27 +61,43 @@
 	margin-bottom: 8px;
 }
 .footer-nav a {
-	color: var(--color-primary, #22223b);
+	color: #d4af37;
 	font-size: 1.08rem;
 	font-weight: 600;
 	text-decoration: none;
-	transition: color 0.2s;
+	transition: all 0.3s ease;
 }
+
 .footer-nav a:hover {
-	color: var(--color-accent, #007bff);
+	color: #ffd700;
+	text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 }
+
 .footer-socials {
 	display: flex;
 	gap: 18px;
 	align-items: center;
 }
+
 .footer-socials a {
-	color: var(--color-primary, #22223b);
-	transition: color 0.2s, transform 0.2s;
+	color: #d4af37;
+	font-size: 1.5rem;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 45px;
+	height: 45px;
+	border: 2px solid #d4af37;
+	border-radius: 50%;
+	background-color: rgba(212, 175, 55, 0.1);
 }
+
 .footer-socials a:hover {
-	color: var(--color-accent, #007bff);
+	color: #1a1a2e;
+	background-color: #d4af37;
 	transform: scale(1.15);
+	box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
 }
 .footer-bottom {
 	display: flex;
@@ -84,8 +109,8 @@
 	color: var(--color-secondary, #4a4e69);
 }
 .footer-top {
-	background: var(--color-accent, #007bff);
-	color: var(--color-white, #fff);
+	background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+	color: #1a1a2e;
 	border: none;
 	border-radius: 18px;
 	padding: 0.4em 1.2em;
@@ -93,12 +118,14 @@
 	font-weight: 600;
 	cursor: pointer;
 	margin-top: 4px;
-	transition: background 0.2s, transform 0.2s;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
 }
+
 .footer-top:hover {
-	background: var(--color-btn-hover, #0056b3);
+	background: #ffd700;
 	transform: translateY(-2px) scale(1.04);
+	box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
 }
 
 @media (max-width: 600px) {
@@ -110,3 +137,4 @@
 		gap: 12px;
 	}
 }
+

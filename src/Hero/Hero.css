@@ -1,5 +1,5 @@
-:root {
-  --font-main: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+﻿:root {
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --color-primary: #22223b;
   --color-secondary: #4a4e69;
   --color-accent: #007bff;
@@ -15,20 +15,95 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--color-bg);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  position: relative;
   text-align: center;
   box-sizing: border-box;
-  padding: 0 20px; /* remove big padding to allow perfect vertical center */
+  padding: 0 20px;
+  animation: fadeIn 0.8s ease-out;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(135, 206, 235, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 0%, rgba(255, 215, 0, 0.05) 0%, transparent 40%);
+  animation: zeus-aura 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 50% -20%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
+    linear-gradient(180deg, transparent 0%, rgba(10, 10, 20, 0.3) 100%);
+  pointer-events: none;
+}
+
+@keyframes zeus-aura {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
+
+@keyframes lightning-flash {
+  0%, 100% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .hero-container {
   display: flex;
-  flex-direction: column; /* stack everything vertically */
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
   gap: 24px;
   max-width: 900px;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-avatar {
@@ -37,27 +112,71 @@
   border-radius: 50%;
   overflow: hidden;
   background: var(--color-white);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 0 60px rgba(212, 175, 55, 0.2), 0 4px 24px rgba(0, 0, 0, 0.3);
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s both, divine-pulse 3s ease-in-out infinite;
+  border: 3px solid rgba(212, 175, 55, 0.3);
+}
+
+@keyframes divine-pulse {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 0 60px rgba(212, 175, 55, 0.2), 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 80px rgba(212, 175, 55, 0.3), 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 .profile-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.hero-avatar:hover .profile-img {
+  transform: scale(1.08);
 }
 
 .hero h2 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: #ffffff;
   margin: 0.5em 0 0.2em;
+  animation: slideInUp 0.7s ease-out 0.3s both;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero p {
   font-size: 1.2rem;
-  color: var(--color-secondary);
+  color: #d1d5db;
   max-width: 600px;
   margin: 0 auto 1.5em;
+  animation: slideInUp 0.7s ease-out 0.4s both;
 }
 
 .hero-buttons {
@@ -65,6 +184,7 @@
   gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
+  animation: slideInUp 0.7s ease-out 0.5s both;
 }
 
 .btn {
@@ -76,12 +196,33 @@
   border: none;
   border-radius: 25px;
   text-decoration: none;
-  transition: background 0.2s, transform 0.2s;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
 }
 
 .btn:hover {
   background: var(--color-btn-hover);
-  transform: translateY(-2px) scale(1.04);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .btn-outline {
@@ -99,11 +240,20 @@
   display: flex;
   gap: 18px;
   margin-top: 1.5em;
+  animation: slideInUp 0.7s ease-out 0.6s both;
 }
 
 .hero-socials a {
   color: var(--color-primary);
-  transition: color 0.2s, transform 0.2s;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-socials a:hover {
+  color: var(--color-accent);
+  transform: translateY(-4px) scale(1.15);
 }
 
 
@@ -113,3 +263,4 @@
     gap: 20px;
   }
 }
+

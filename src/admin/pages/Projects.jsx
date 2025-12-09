@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import { storage } from '../utils/storage';
 import '../styles/Projects.css';
 
 const Projects = () => {
+  const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState(null);
@@ -94,6 +96,9 @@ const Projects = () => {
       
       <div className="admin-main">
         <div className="admin-container">
+          <button className="btn-back" onClick={() => navigate('/admin')}>
+            ← Back to Dashboard
+          </button>
           <div className="admin-header">
             <h1>Project Manager</h1>
             <button 

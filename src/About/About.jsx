@@ -5,6 +5,28 @@ function About() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalSrc, setModalSrc] = useState("");
   const [modalTitle, setModalTitle] = useState("");
+  const [about, setAbout] = useState({
+    bio: 'Hello! I\'m Zeus Sulit, an aspiring front-end developer passionate about crafting clean, responsive, and user-friendly websites.',
+    extra1: 'I\'m currently learning more about ReactJS and web development best practices.',
+    extra2: 'Beyond coding, I enjoy listening to music, watching films, walking, and exercising.',
+    techStack: ['C++', '⚛️ C#', '♨️ Java', '🐍 Python', '⚛️ React', '💻 HTML', '🎨 CSS', '🧠 JavaScript', '🌐 Git & GitHub']
+  });
+  const [certificates, setCertificates] = useState([
+    { id: 1, title: 'Responsive Web Design — FreeCodeCamp', image: '/assets/images/Access.jpg' },
+    { id: 2, title: 'JavaScript Algorithms & Data Structures — FreeCodeCamp', image: '/assets/certs/js-algorithms.jpg' },
+    { id: 3, title: 'Frontend Development Bootcamp — Local Course', image: '/assets/certs/frontend-bootcamp.jpg' }
+  ]);
+
+  useEffect(() => {
+    const savedAbout = localStorage.getItem('aboutData');
+    if (savedAbout) {
+      setAbout(JSON.parse(savedAbout));
+    }
+    const savedCerts = localStorage.getItem('certificatesData');
+    if (savedCerts) {
+      setCertificates(JSON.parse(savedCerts));
+    }
+  }, []);
 
   function openModal(src, title) {
     setModalSrc(src);
@@ -52,65 +74,31 @@ function About() {
           <div className="skills">
             <h3>Tech Stack</h3>
             <ul className="skills-list">
-              <li><button className="skill-btn">C++</button></li>
-              <li><button className="skill-btn">⚛️ C#</button></li>
-              <li><button className="skill-btn">♨️ Java</button></li>
-              <li><button className="skill-btn">🐍 Python</button></li>
-              <li><button className="skill-btn">⚛️ React</button></li>
-              <li><button className="skill-btn">💻 HTML</button></li>
-              <li><button className="skill-btn">🎨 CSS</button></li>
-              <li><button className="skill-btn">🧠 JavaScript</button></li>
-              <li><button className="skill-btn">🌐 Git & GitHub</button></li>
+              {about.techStack.map((tech, index) => (
+                <li key={index}><button className="skill-btn">{tech}</button></li>
+              ))}
             </ul>
           </div>
 
           <div className="certificates">
             <h3>Certificates & Achievements</h3>
             <ul className="cert-list">
-              <li>
-                <button
-                  type="button"
-                  className="cert-item"
-                  onClick={() =>
-                    openModal(
-                      "/assets/images/Access.jpg",
-                      "Ms Access Specialist"
-                    )
-                  }
-                >
-                  Ms Access Specialist
-                </button>
-              </li>
-
-              <li>
-                <button
-                  type="button"
-                  className="cert-item"
-                  onClick={() =>
-                    openModal(
-                      "/assets/certs/js-algorithms.jpg",
-                      "MS Excel Specialist"
-                    )
-                  }
-                >
-                  MS Excel Specialist
-                </button>
-              </li>
-
-              <li>
-                <button
-                  type="button"
-                  className="cert-item"
-                  onClick={() =>
-                    openModal(
-                      "/assets/certs/frontend-bootcamp.jpg",
-                      "TEST123"
-                    )
-                  }
-                >
-                  TEST123 
-                </button>
-              </li>
+              {certificates.map(cert => (
+                <li key={cert.id}>
+                  <button
+                    type="button"
+                    className="cert-item"
+                    onClick={() =>
+                      openModal(
+                        cert.image,
+                        cert.title
+                      )
+                    }
+                  >
+                    {cert.title}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 

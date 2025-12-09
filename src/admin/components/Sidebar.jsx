@@ -29,6 +29,27 @@ const Sidebar = () => {
             <span className="nav-text">Dashboard</span>
           </NavLink>
           <NavLink 
+            to="/admin/hero" 
+            className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+          >
+            <span className="nav-icon">🦸</span>
+            <span className="nav-text">Hero</span>
+          </NavLink>
+          <NavLink 
+            to="/admin/about" 
+            className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+          >
+            <span className="nav-icon">👤</span>
+            <span className="nav-text">About</span>
+          </NavLink>
+          <NavLink 
+            to="/admin/certificates" 
+            className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+          >
+            <span className="nav-icon">🏆</span>
+            <span className="nav-text">Certs</span>
+          </NavLink>
+          <NavLink 
             to="/admin/projects" 
             className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
           >

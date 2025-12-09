@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import { storage } from '../utils/storage';
 import '../styles/Messages.css';
 
 const Messages = () => {
+  const navigate = useNavigate();
   const [messages, setMessages] = useState([]);
   const [filter, setFilter] = useState('all');
   const [selectedMessage, setSelectedMessage] = useState(null);

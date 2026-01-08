@@ -68,8 +68,8 @@
 
 .projects-tab {
 	background: none;
-	border: 2px solid var(--color-accent, #007bff);
-	color: var(--color-accent, #007bff);
+	border: 2px solid #d4af37;
+	color: #d4af37;
 	padding: 0.5em 1.5em;
 	border-radius: 20px;
 	font-size: 1rem;
@@ -87,7 +87,7 @@
 	left: -100%;
 	width: 100%;
 	height: 100%;
-	background: var(--color-accent, #007bff);
+	background: #d4af37;
 	z-index: -1;
 	transition: left 0.4s ease;
 }
@@ -99,7 +99,7 @@
 
 .projects-tab.active,
 .projects-tab:hover {
-	background: var(--color-accent, #007bff);
+	background: #d4af37;
 	color: var(--color-white, #fff);
 	transform: scale(1.05);
 }

@@ -4,7 +4,7 @@ import './Navbar.css';
 function Navbar() {
     return (
         <nav className="navbar">
-            <h1 className="navbar-logo">Zeus Sulit</h1>
+            <h1 className="navbar-logo"></h1>
             <ul className="navbar-links">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -12,7 +12,7 @@ function Navbar() {
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div className="navbar-right">
-                <a href="/admin/login" className="btn btn-admin" title="Admin Panel">⚙️</a>
+                
             </div>
         </nav>
     );
